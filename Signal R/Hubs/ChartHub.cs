@@ -1,0 +1,16 @@
+﻿using Microsoft.AspNetCore.SignalR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Signal_R.Hubs
+{
+    public class ChartHub:Hub
+    {
+        public async  Task SendMessage(string FromUser,string Message)
+        {
+            await Clients.All.SendAsync("RecieveMessage",FromUser,Message);
+        }
+    }
+}
